@@ -24,6 +24,7 @@ Unfortunately only French is available for now, the content is organised as belo
 ### Introduction
 ### Récapitulatif commandes docker
 ### 00_how_to_docker
+
 Rappel  
 01 Créer une machine virtuelle avec docker-machine utilisant le driver virtualbox et ayant pour nom Char  
 02 Récupérer l’adresse IP de la machine virtuelle Char  
@@ -77,15 +78,31 @@ Rappel
 32 Forcer l’arrêt et supprimer l’ensemble des containers (tous états confondus), en une seule commande  
 33 Supprimer l’ensemble des images de containers stocké sur la machine virtuelle Char, en une seule commande aussi  
 34 Supprimer la machine virtuelle Aiur autrement qu’avec un rm -rf  
-### Dockerfiles
-  
-  
+    
+### 01_dockerfiles
 
+ex00 - vim/emacs  
+- Depuis une image alpine, vous ajouterez à votre container l’éditeur de texte de votre choix entre vim ou emacs, qui se lancera au démarrage de votre container.  
 
+ex01 - BYOTSS  
+- Depuis une image debian, vous ajouterez les sources adéquates pour créer un serveur TeamSpeak, serveur qui se lancera au démarrage de votre container. Celui-ci est considéré comme valide si au moins un utilisateur peut se connecter dessus et discuter normalement (pas de configuration hasardeuse), donc créez votre Dockerfile avec les options adéquates.
+Vous devez faire en sorte que les sources soient récupérées au build, elles ne doivent pas être présentes dans le dépôt.
+Pour les petits malins, l’utilisation de l’image officielle TeamSpeak de docker est INTERDITE et sera sanctionné par la note de -42.  
 
-  
+ex02 - Dockerfile in a Dockerfile... in a Dockerfile ?
+- Vous allez créer votre premier Dockerfile containerisateur d’application Rails.
+Ce Dockerfile sera un peu spécial car il sera générique et devra être appelé dans un autre Dockerfile, qui devrait ressembler un peu à ça :
+```
+FROM        ft-rails:on-build
+EXPOSE    3000
+CMD        ["rails", "s", "-b", "0.0.0.0", "-p" ,"3000"]
+```
+- Votre container générique devra, depuis un container ruby, installer toutes les dépendances nécessaires, puis copier votre application rails dans le dossier /opt/app de votre container. 
+Au build, Docker doit faire l’installation des gems spécifiques, ainsi que les migrations et la population de la db de votre application. 
+Le Dockerfile-fils devra exposer les bons ports et lancer le serveur de rails (voir exemple ci-dessus). 
+Si vous ne connaissez pas les commandes, il est temps de faire un tour sur la doc de Ruby on Rails.  
 
-  
-
-
-
+ex03 - What does the Fox say ?
+- Docker peut etre pratique pour pouvoir tester une application encore en développement sans créer de la pollution dans vos fichiers. 
+Vous allez par ailleurs, devoir concevoir un Dockerfile qui, au build, récupère la version actuelle de Gitlab - Community  Edition, l’installe avec toutes les dépendances et les configurations nécessaires et lance l’application (HTTPS et SSH). 
+Le container est jugé valide, si vous pouvez accéder au client web, et si vous êtes capables d’utiliser correctement avec Gitlab et d’interagir via GIT avec ce container. Bien sur, vous ne devrez pas utiliser le container officiel de Gitlab, ce serait un peu tricher...
