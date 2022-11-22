@@ -110,4 +110,4 @@ Le container est jugé valide, si vous pouvez accéder au client web, et si vous
 ### Conclusion
     
 # Reminder
-This document can be shared upon request.
+This document is available in French and can be shared upon request.
