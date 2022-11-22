@@ -27,34 +27,49 @@ Unfortunately only French is available for now, the content is organised as belo
 Rappel  
 01 Créer une machine virtuelle avec docker-machine utilisant le driver virtualbox et ayant pour nom Char  
 02 Récupérer l’adresse IP de la machine virtuelle Char  
-03 Assigner les variables spécifiques à la machine virtuelle Char dans l’env courant de votre terminal, de sorte que vous pouvez lancer la commande docker ps sans  erreurs. Une seule commande est attendue pour fixer les 4 variables d’environnement et il vous est interdit d’utiliser le builtin de votre shell pour set à la main ces variables.  
+03 Assigner les variables spécifiques à la machine virtuelle Char dans l’env courant de votre terminal, de sorte que vous pouvez lancer la commande docker ps sans  erreurs  
+    Une seule commande est attendue pour fixer les 4 variables d’environnement et il vous est interdit d’utiliser le builtin de votre shell pour set à la main ces variables  
 04 Récupérer depuis le Docker Hub le container hello-world disponible sur le Docker Hub  
 05 Lancer le container hello-world et faire en sorte que le container affiche bien son message d’accueil, puis le quitte  
-06 Lancer un container nginx disponible sur le Docker Hub en tâche de fond. Le container lancé doit avoir pour nom overlord, doit pouvoir redémarrer de lui-même et doit avoir le port 80 du container rattaché au port 5000 de Char. Vous pouvez vérifier le fonctionnement de votre container en allant sur un http://<ip-de-char>:5000 comme URL sur votre navigateur internet  
+06 Lancer un container nginx disponible sur le Docker Hub en tâche de fond  
+    Le container lancé doit avoir pour nom overlord, doit pouvoir redémarrer de lui-même et doit avoir le port 80 du container rattaché au port 5000 de Char.  
+    Vous pouvez vérifier le fonctionnement de votre container en allant sur un http://<ip-de-char>:5000 comme URL sur votre navigateur internet  
 07 Récupérer l’adresse IP interne du container overlord sans lancer son shell et en une commande  
 08 Lancer un shell depuis un container alpine, en faisant en sorte que vous puissiez directement interagir avec le container via votre terminal et que le container se supprime à la fin de l’exécution du shell  
-09 Depuis le shell d’un container debian , faire en sorte d’installer via le gestionnaire de paquets du container, de quoi compiler un code source en C et le pusher sur un repo git  
+09 Depuis le shell d’un container debian, faire en sorte d’installer via le gestionnaire de paquets du container, de quoi compiler un code source en C et le pusher sur un repo git  
 10 Créer un volume hatchery  
 11 Lister les volumes Docker créés sur la machine... je dis bien VOLUMES  
-12 Lancer un container mysql en tâche de fond. Il devra aussi pouvoir redémarrer de lui-même en cas d’erreur et faire en sorte que le mot de passe root de la base de données soit “Kerrigan”. Vous ferez aussi en sorte que la base de données soit stockée dans le volume hatchery, que le conteneur crée directement une base de données qui aura comme nom zerglings et le container s’appellera spawning-pool.  
-13 Afficher les variables d’environnement du container spawning-pool en une seule commande, histoire d’être sûr que vous avez bien configuré votre container.
-14 Lancer un container wordpress en tâche de fond, pour le lulz. 
-Le container doit avoir pour nom “lair”, le port 80 du container doit être bindé au port 8080 de la machine virtuelle et doit pouvoir utiliser le container spawning-pool comme service de base de données. Vous pouvez tenter d’accéder à “lair” sur votre machine via un navigateur en rentrant l’adresse IP de la machine virtuelle comme URL. Bravo, vous venez de déployer un site Wordpress fonctionnel en 2 commandes !
-15 Lancer un container phpmyadmin en tâche de fond. Le container doit avoir pour nom roach-warden, le port 80 du container doit être bindé au port 8081 de la machine virtuelle et doit pouvoir faire en sorte d’aller explorer la base de données contenue dans le container spawning-pool.  
+12 Lancer un container mysql en tâche de fond  
+    Il devra aussi pouvoir redémarrer de lui-même en cas d’erreur et faire en sorte que le mot de passe root de la base de données soit "Kerrigan"  
+    Vous ferez aussi en sorte que la base de données soit stockée dans le volume hatchery, que le conteneur crée directement une base de données qui aura comme nom zerglings et le container s’appellera spawning-pool  
+13 Afficher les variables d’environnement du container spawning-pool en une seule commande, histoire d’être sûr que vous avez bien configuré votre container  
+14 Lancer un container wordpress en tâche de fond  
+    Le container doit avoir pour nom "lair", le port 80 du container doit être bindé au port 8080 de la machine virtuelle et doit pouvoir utiliser le container spawning-pool comme service de base de données  
+    Vous pouvez tenter d’accéder à "lair" sur votre machine via un navigateur en rentrant l’adresse IP de la machine virtuelle comme URL. Bravo, vous venez de déployer un site Wordpress fonctionnel en 2 commandes !  
+15 Lancer un container phpmyadmin en tâche de fond  
+    Le container doit avoir pour nom roach-warden, le port 80 du container doit être bindé au port 8081 de la machine virtuelle et doit pouvoir faire en sorte d’aller explorer la base de données contenue dans le container spawning-pool  
 16 Consulter les logs en temps réel du container spawning-pool sans exécuter son shell pour autant  
 17 Afficher l’ensemble des containers actuellement actifs sur la machine virtuelle Char  
 18 Relancer le container overlord  
-19 Démarrer un container qui se nommera Abathur. Abathur sera un container Python en version 2-slim, qui aura son dossier /root bindé à un dossier du HOME de votre host, ainsi que le port 3000 bindé au port 3000 de votre machine virtuelle. Vous personnaliserez ce container de telle sorte que vous puissiez utiliser le micro-framework Flask dans sa dernière version. Vous devrez faire en sorte qu’une page html renvoyant un "Hello World" dans des balises <h1>, soit servie par Flask. Vous testerez la bonne mise en place de votre container, en accédant via curl ou navigateur web, à l’adresse IP de votre machine virtuelle sur le port 3000.  
+19 Démarrer un container qui se nommera Abathur  
+    Abathur sera un container Python en version 2-slim, qui aura son dossier /root bindé à un dossier du HOME de votre host, ainsi que le port 3000 bindé au port 3000 de votre machine virtuelle  
+    Vous personnaliserez ce container de telle sorte que vous puissiez utiliser le micro-framework Flask dans sa dernière version. Vous devrez faire en sorte qu’une page html renvoyant un "Hello World" dans des balises <h1>, soit servie par Flask  
+    Vous testerez la bonne mise en place de votre container, en accédant via curl ou navigateur web, à l’adresse IP de votre machine virtuelle sur le port 3000    
 20 Créer un swarm local où la machine virtuelle Char en est le manager  
 21 Créer une autre machine virtuelle avec docker-machine utilisant le driver virtualbox et ayant pour nom Aiur  
 22 Basculer Aiur comme esclave du swarm local où Char est leader  
 23 Créer un réseau interne de type overlay que vous nommerez overmind  
-24 Lancer un SERVICE rabbitmq qui aura pour nom orbital-command. Vous devrez définir un user et un mot de passe spécifiques à l’utilisation du service RabbitMQ, et ceux-ci seront à votre libre convenance. Ce service sera sur le réseau overmind.  
-25 Lister l’ensemble des services du swarm local
-26 Lancer un service 42school/engineering-bay en 2 répliques et faire en sorte que le service fonctionne (se référer à la doc fournie dans hub.docker.com). Ce service s’appellera engineering-bay et sera sur le réseau overmind.  
+24 Lancer un SERVICE rabbitmq qui aura pour nom orbital-command. Vous devrez définir un user et un mot de passe spécifiques à l’utilisation du service RabbitMQ, et ceux-ci seront à votre libre convenance  
+    Ce service sera sur le réseau overmind  
+25 Lister l’ensemble des services du swarm local  
+26 Lancer un service 42school/engineering-bay en 2 répliques et faire en sorte que le service fonctionne  
+    Ce service s’appellera engineering-bay et sera sur le réseau overmind  
 27 Récuperer les logs  en continu d’une des tasks du service engineering-bay  
-28 ... Damn, des zergs sont en train d’attaquer orbital-command et couper le service engineering-bay ne servira à rien… Vous devez envoyer des Marines pour les éliminer… Lancer un service 42school/marine-squad en 2 répliques, et faites en sorte que le service fonctionne (se référer à la doc fournie dans hub.docker.com). Ce service s’appellera … marines et sera sur le réseau overmind  
-29 Afficher l’ensemble des tâches du service marines
+28 ... Damn, des zergs sont en train d’attaquer orbital-command et couper le service engineering-bay ne servira à rien…  
+    Vous devez envoyer des Marines pour les éliminer…  
+    Lancer un service 42school/marine-squad en 2 répliques, et faites en sorte que le service fonctionne  
+    Ce service s’appellera … marines et sera sur le réseau overmind  
+29 Afficher l’ensemble des tâches du service marines  
 30 Mettre à jour le nombre de répliques du service marines à 20, car on n’a jamais assez de Marines pour annihiler du Zerg  
 31 Forcer l’arrêt et supprimer l’ensemble des services sur le swarm local, en une seule commande  
 32 Forcer l’arrêt et supprimer l’ensemble des containers (tous états confondus), en une seule commande  
