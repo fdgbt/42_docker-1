@@ -1,5 +1,5 @@
 # 42_docker-1
-First project to discover Docker ecosystem and to create first containers using Dockerfiles.
+First project to discover Docker's ecosystem and to create first containers using Dockerfiles.
 It is part of the DevOps branch with "init" and "roger-skyline-1" projects.
 
 # Expected Result
