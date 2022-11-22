@@ -1,3 +1,4 @@
+#!/bin/bash
 mkdir -p ~/shared
 cp ~/Projects/Tests/dev_docker/app.py ~/shared
 docker run -dit -p 3000:3000 --name Abathur -v ~/Shared:/root python:2-slim

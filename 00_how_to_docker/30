@@ -1,1 +1,2 @@
+#!/bin/bash
 docker service update --replicas 20 marines
