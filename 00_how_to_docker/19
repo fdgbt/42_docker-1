@@ -1,0 +1,5 @@
+mkdir -p ~/shared
+cp ~/Projects/Tests/dev_docker/app.py ~/shared
+docker run -dit -p 3000:3000 --name Abathur -v ~/Shared:/root python:2-slim
+docker exec Abathur pip install Flask
+docker exec --env FLASK_APP=/root/app.py Abathur flask run --port 3000 --host 0.0.0.0
