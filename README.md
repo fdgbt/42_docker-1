@@ -113,8 +113,8 @@ Le container est jugé valide, si vous pouvez accéder au client web, et si vous
 This document is available in French and can be shared upon request.
 
 # Keywords
-Micro services  
-Docker  
 Unix  
+Docker  
 Containers  
+Micro services  
 DevOps  
