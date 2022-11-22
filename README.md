@@ -32,7 +32,7 @@ Rappel
 04 Récupérer depuis le Docker Hub le container hello-world disponible sur le Docker Hub  
 05 Lancer le container hello-world et faire en sorte que le container affiche bien son message d’accueil, puis le quitte  
 06 Lancer un container nginx disponible sur le Docker Hub en tâche de fond  
-    Le container lancé doit avoir pour nom overlord, doit pouvoir redémarrer de lui-même et doit avoir le port 80 du container rattaché au port 5000 de Char.  
+    Le container lancé doit avoir pour nom overlord, doit pouvoir redémarrer de lui-même et doit avoir le port 80 du container rattaché au port 5000 de Char  
     Vous pouvez vérifier le fonctionnement de votre container en allant sur un http://<ip-de-char>:5000 comme URL sur votre navigateur internet  
 07 Récupérer l’adresse IP interne du container overlord sans lancer son shell et en une commande  
 08 Lancer un shell depuis un container alpine, en faisant en sorte que vous puissiez directement interagir avec le container via votre terminal et que le container se supprime à la fin de l’exécution du shell  
@@ -53,13 +53,15 @@ Rappel
 18 Relancer le container overlord  
 19 Démarrer un container qui se nommera Abathur  
     Abathur sera un container Python en version 2-slim, qui aura son dossier /root bindé à un dossier du HOME de votre host, ainsi que le port 3000 bindé au port 3000 de votre machine virtuelle  
-    Vous personnaliserez ce container de telle sorte que vous puissiez utiliser le micro-framework Flask dans sa dernière version. Vous devrez faire en sorte qu’une page html renvoyant un "Hello World" dans des balises <h1>, soit servie par Flask  
-    Vous testerez la bonne mise en place de votre container, en accédant via curl ou navigateur web, à l’adresse IP de votre machine virtuelle sur le port 3000    
+    Vous personnaliserez ce container de telle sorte que vous puissiez utiliser le micro-framework Flask dans sa dernière version  
+    Vous devrez faire en sorte qu’une page html renvoyant un "Hello World" dans des balises < h1 >, soit servie par Flask  
+    Vous testerez la bonne mise en place de votre container, en accédant via curl ou navigateur web, à l’adresse IP de votre machine virtuelle sur le port 3000  
 20 Créer un swarm local où la machine virtuelle Char en est le manager  
 21 Créer une autre machine virtuelle avec docker-machine utilisant le driver virtualbox et ayant pour nom Aiur  
 22 Basculer Aiur comme esclave du swarm local où Char est leader  
 23 Créer un réseau interne de type overlay que vous nommerez overmind  
-24 Lancer un SERVICE rabbitmq qui aura pour nom orbital-command. Vous devrez définir un user et un mot de passe spécifiques à l’utilisation du service RabbitMQ, et ceux-ci seront à votre libre convenance  
+24 Lancer un SERVICE rabbitmq qui aura pour nom orbital-command  
+    Vous devrez définir un user et un mot de passe spécifiques à l’utilisation du service RabbitMQ, et ceux-ci seront à votre libre convenance  
     Ce service sera sur le réseau overmind  
 25 Lister l’ensemble des services du swarm local  
 26 Lancer un service 42school/engineering-bay en 2 répliques et faire en sorte que le service fonctionne  
