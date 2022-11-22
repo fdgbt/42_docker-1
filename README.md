@@ -1,5 +1,5 @@
 # 42_docker-1
-First project to discover Docker's ecosystem and to create first containers using Dockerfiles.
+First project to discover Docker's ecosystem and to create first containers using Dockerfiles.  
 It is part of the DevOps branch with "init" and "roger-skyline-1" projects.
 
 # Expected Result
@@ -106,3 +106,8 @@ ex03 - What does the Fox say ?
 - Docker peut etre pratique pour pouvoir tester une application encore en développement sans créer de la pollution dans vos fichiers. 
 Vous allez par ailleurs, devoir concevoir un Dockerfile qui, au build, récupère la version actuelle de Gitlab - Community  Edition, l’installe avec toutes les dépendances et les configurations nécessaires et lance l’application (HTTPS et SSH). 
 Le container est jugé valide, si vous pouvez accéder au client web, et si vous êtes capables d’utiliser correctement avec Gitlab et d’interagir via GIT avec ce container. Bien sur, vous ne devrez pas utiliser le container officiel de Gitlab, ce serait un peu tricher...
+
+### Conclusion
+    
+# Reminder
+This document can be shared upon request.
