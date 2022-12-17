@@ -110,7 +110,7 @@ Le container est jugé valide, si vous pouvez accéder au client web, et si vous
 ### Conclusion
     
 # Reminder
-This document of 45 pages is available in French only and can be shared upon request.
+The document of 45 pages is available in French only and can be shared upon request.
 
 # Keywords
 Unix  
