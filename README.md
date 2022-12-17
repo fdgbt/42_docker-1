@@ -1,6 +1,6 @@
 # 42_docker-1
 First project to discover Docker's ecosystem and to create first containers using Dockerfiles.  
-It is part of the DevOps branch with "init" and "roger-skyline-1" projects.  
+It is part of the admin-sys branch with "init" and "roger-skyline-1" projects.  
 
 # Expected Result
 All the commands and scripts (Dockerfiles) used in this project are uploaded in this repository.  
@@ -18,14 +18,14 @@ I would like to thanks a lot the 42 peers (and friends) who helped me to produce
 
 Unfortunately only French is available for now, the content is organised as below:
 
-### Remerciements
-### Versions du document
-### Table des matières
+### Thanks
+### Versions of document
+### Summary
 ### Introduction
-### Récapitulatif commandes docker
+### Summary of Docker commands
 ### 00_how_to_docker
 
-Rappel  
+Reminder  
 01 Créer une machine virtuelle avec docker-machine utilisant le driver virtualbox et ayant pour nom Char  
 02 Récupérer l’adresse IP de la machine virtuelle Char  
 03 Assigner les variables spécifiques à la machine virtuelle Char dans l’env courant de votre terminal, de sorte que vous pouvez lancer la commande docker ps sans  erreurs   
@@ -110,7 +110,7 @@ Le container est jugé valide, si vous pouvez accéder au client web, et si vous
 ### Conclusion
     
 # Reminder
-This document is available in French and can be shared upon request.
+This document of 45 pages is available in French only and can be shared upon request.
 
 # Keywords
 Unix  
