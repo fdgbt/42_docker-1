@@ -20,7 +20,7 @@ Unfortunately only French is available for now, the content is organised as belo
 
 ### Thanks
 ### Versions of document
-### Summary
+### Summary of document
 ### Introduction
 ### Summary of Docker commands
 ### 00_how_to_docker
