@@ -51,61 +51,67 @@ Unfortunately only French is available for now, the content is organised as belo
    Congratulations, you just deployed a functional Wordpress website in two commands!  
 15 Launch a phpmyadmin container as a background task  
    It should be named roach-warden, its 80 port should be bound to the 8081 port of the virtual machine and it should be able to explore the database stored in the spawning-pool container  
-16 Consulter les logs en temps réel du container spawning-pool sans exécuter son shell pour autant  
-17 Afficher l’ensemble des containers actuellement actifs sur la machine virtuelle Char  
-18 Relancer le container overlord  
-19 Démarrer un container qui se nommera Abathur  
-- Abathur sera un container Python en version 2-slim, qui aura son dossier /root bindé à un dossier du HOME de votre host, ainsi que le port 3000 bindé au port 3000 de votre machine virtuelle. Vous personnaliserez ce container de telle sorte que vous puissiez utiliser le micro-framework Flask dans sa dernière version. Vous devrez faire en sorte qu’une page html renvoyant un "Hello World" dans des balises < h1 >, soit servie par Flask. Vous testerez la bonne mise en place de votre container, en accédant via curl ou navigateur web, à l’adresse IP de votre machine virtuelle sur le port 3000  
-
-20 Créer un swarm local où la machine virtuelle Char en est le manager  
-21 Créer une autre machine virtuelle avec docker-machine utilisant le driver virtualbox et ayant pour nom Aiur  
-22 Basculer Aiur comme esclave du swarm local où Char est leader  
-23 Créer un réseau interne de type overlay que vous nommerez overmind  
-24 Lancer un SERVICE rabbitmq qui aura pour nom orbital-command  
-- Vous devrez définir un user et un mot de passe spécifiques à l’utilisation du service RabbitMQ, et ceux-ci seront à votre libre convenance. Ce service sera sur le réseau overmind  
-
-25 Lister l’ensemble des services du swarm local  
-26 Lancer un service 42school/engineering-bay en 2 répliques et faire en sorte que le service fonctionne  
-- Ce service s’appellera engineering-bay et sera sur le réseau overmind  
-
-27 Récuperer les logs  en continu d’une des tasks du service engineering-bay  
-28 ... Damn, des zergs sont en train d’attaquer orbital-command et couper le service engineering-bay ne servira à rien…  
-- Vous devez envoyer des Marines pour les éliminer… Lancer un service 42school/marine-squad en 2 répliques, et faites en sorte que le service fonctionne. Ce service s’appellera … marines et sera sur le réseau overmind  
-
-29 Afficher l’ensemble des tâches du service marines  
-30 Mettre à jour le nombre de répliques du service marines à 20, car on n’a jamais assez de Marines pour annihiler du Zerg  
-31 Forcer l’arrêt et supprimer l’ensemble des services sur le swarm local, en une seule commande  
-32 Forcer l’arrêt et supprimer l’ensemble des containers (tous états confondus), en une seule commande  
-33 Supprimer l’ensemble des images de containers stocké sur la machine virtuelle Char, en une seule commande aussi  
-34 Supprimer la machine virtuelle Aiur autrement qu’avec un rm -rf  
+16 Look up the spawning-pool container’s logs in real time without running its shell  
+17 Display all the currently active containers on the Char virtual machine  
+18 Relaunch the overlord container  
+19 Launch a container name Abathur  
+   It will be a Python container, 2-slim version, its /root folder will be bound to a HOME folder on your host, and its 3000 port will be bound to the 3000 port of your virtual machine  
+   You will personalize this container so that you can use the Flask micro-framework in its latest version  
+   You will make sure that an html page displaying "Hello World" with < h1 > tags can be served by Flask  
+   You will test that your container is properly set up by accessing, via curl or a web browser, the IP address of your virtual machine on the 3000 port  
+   You will also list all the necessary commands in your repository  
+20 Create a local swarm, the Char virtual machine should be its manager  
+21 Create another virtual machine with docker-machine using the virtualbox driver, and name it Aiur  
+22 Turn Aiur into a slave of the local swarm in which Char is leader (the command to take control of Aiur is not requested)  
+23 Create an overlay-type internal network that you will name overmind  
+24 Launch a rabbitmq SERVICE that will be named orbital-command  
+   You should define a specific user and password for the RabbitMQ service, they can be whatever you want  
+   This service will be on the overmind network  
+25 List all the services of the local swarm  
+26 Launch a 42school/engineering-bay service in two replicas and make sure that the service works properly (see the documentation provided at hub.docker.com)  
+   This service will be named engineering-bay and will be on the overmind network  
+27 Get the real-time logs of one the tasks of the engineering-bay service  
+28 ... Damn it, a group of zergs is attacking orbital-command, and shutting down the engineering-bay service won’t help at all...  
+   You must send a troup of Marines to eliminate the intruders  
+   Launch a 42school/marine-squad in two replicas, and make sure that the service works properly (see the documentation provided at hub.docker.com)  
+   This service will be named... marines and will be on the overmind network  
+29 Display all the tasks of the marines service  
+30 Increase the number of copies of the marines service up to twenty, because there’s never enough Marines to eliminate Zergs  
+   Remember to take a look at the tasks and logs of the service, you’ll see, it’s fun  
+31 Force quit and delete all the services on the local swarm, in one command  
+32 Force quit and delete all the containers (whatever their status), in one command  
+33 Delete all the container images stored on the Char virtual machine, in one command as well  
+34 Delete the Aiur virtual machine without using rm -rf  
     
 ### 01_dockerfiles
 
-ex00 - vim/emacs  
-- Depuis une image alpine, vous ajouterez à votre container l’éditeur de texte de votre choix entre vim ou emacs, qui se lancera au démarrage de votre container.  
+#### ex00 - vim/emacs  
+- From an alpine image you’ll add to your container your favorite text editor, vim or emacs, that will launch along with your container  
 
-ex01 - BYOTSS  
-- Depuis une image debian, vous ajouterez les sources adéquates pour créer un serveur TeamSpeak, serveur qui se lancera au démarrage de votre container. Celui-ci est considéré comme valide si au moins un utilisateur peut se connecter dessus et discuter normalement (pas de configuration hasardeuse), donc créez votre Dockerfile avec les options adéquates.
-Vous devez faire en sorte que les sources soient récupérées au build, elles ne doivent pas être présentes dans le dépôt.
-Pour les petits malins, l’utilisation de l’image officielle TeamSpeak de docker est INTERDITE et sera sanctionné par la note de -42.  
+#### ex01 - BYOTSS  
+- From a debian image you will add the appropriate sources to create a TeamSpeak server, that will launch along with your container  
+- It will be deemed valid if at least one user can connect to it and engage in a normal discussion (no far-fetched setup), so be sure to create your Dockerfile with the right options  
+ - Your program should get the sources when it builds, they cannot be in your repository  
+ - For the smarty-pants, using the official docker image of TeamSpeak is strictly FORBIDDEN, and will get you a score of -42  
 
-ex02 - Dockerfile in a Dockerfile... in a Dockerfile ?
-- Vous allez créer votre premier Dockerfile containerisateur d’application Rails.
-Ce Dockerfile sera un peu spécial car il sera générique et devra être appelé dans un autre Dockerfile, qui devrait ressembler un peu à ça :
+#### ex02 - Dockerfile in a Dockerfile... in a Dockerfile ?  
+- You are going to create your first Dockerfile to containerize Rails applications  
+- That’s a special configuration, this particular Dockerfile will be generic, and called in another Dockerfile, that will look something like this:
 ```
 FROM        ft-rails:on-build
 EXPOSE    3000
 CMD        ["rails", "s", "-b", "0.0.0.0", "-p" ,"3000"]
 ```
-- Votre container générique devra, depuis un container ruby, installer toutes les dépendances nécessaires, puis copier votre application rails dans le dossier /opt/app de votre container. 
-Au build, Docker doit faire l’installation des gems spécifiques, ainsi que les migrations et la population de la db de votre application. 
-Le Dockerfile-fils devra exposer les bons ports et lancer le serveur de rails (voir exemple ci-dessus). 
-Si vous ne connaissez pas les commandes, il est temps de faire un tour sur la doc de Ruby on Rails.  
+- Your generic container should install, via a ruby container, all the necessary dependencies and gems, then copy your rails application in the /opt/app folder of your container  
+- Docker has to install the approtiate gems when it builds, but also launch the migrations and the db population for your application  
+- The child Dockerfile should launch the rails server (see example below)  
+- If you don’t know what commands to use, it’s high time to look at the Ruby on Rails documentation  
 
-ex03 - What does the Fox say ?
-- Docker peut etre pratique pour pouvoir tester une application encore en développement sans créer de la pollution dans vos fichiers. 
-Vous allez par ailleurs, devoir concevoir un Dockerfile qui, au build, récupère la version actuelle de Gitlab - Community  Edition, l’installe avec toutes les dépendances et les configurations nécessaires et lance l’application (HTTPS et SSH). 
-Le container est jugé valide, si vous pouvez accéder au client web, et si vous êtes capables d’utiliser correctement avec Gitlab et d’interagir via GIT avec ce container. Bien sur, vous ne devrez pas utiliser le container officiel de Gitlab, ce serait un peu tricher...
+#### ex03 - What does the Fox say ?
+- Docker can be useful to test an application that’s still being developed without polluting your libraries  
+- You will have to design a Dockerfile that gets the development version of Gitlab - Community Edition installs it with all the dependencies and the necessary configurations, and launches the application, all as it builds  
+- The container will be deemed valid if you can access the web client, create users and interact via GIT with this container (HTTPS and SSH)  
+- Obviously, you are not allowed to use the official container from Gitlab, it would be a shame...
 
 ### Conclusion
     
