@@ -1,6 +1,6 @@
 # 42_docker-1
 First project to discover Docker's ecosystem and to create first containers using Dockerfiles.  
-It is part of the admin-sys branch with "init" and "roger-skyline-1" projects.  
+It is part of the Admin-Sys / DevOps branch with "init" and "roger-skyline-1" projects.  
 
 # Expected Result
 All the commands and scripts (Dockerfiles) used in this project are uploaded in this repository.  
@@ -25,32 +25,32 @@ Unfortunately only French is available for now, the content is organised as belo
 ### Summary of Docker commands
 ### 00_how_to_docker
 
-Reminder  
-01 Créer une machine virtuelle avec docker-machine utilisant le driver virtualbox et ayant pour nom Char  
-02 Récupérer l’adresse IP de la machine virtuelle Char  
-03 Assigner les variables spécifiques à la machine virtuelle Char dans l’env courant de votre terminal, de sorte que vous pouvez lancer la commande docker ps sans  erreurs   
-- Une seule commande est attendue pour fixer les 4 variables d’environnement et il vous est interdit d’utiliser le builtin de votre shell pour set à la main ces variables  
-
-04 Récupérer depuis le Docker Hub le container hello-world disponible sur le Docker Hub  
-05 Lancer le container hello-world et faire en sorte que le container affiche bien son message d’accueil, puis le quitte  
-06 Lancer un container nginx disponible sur le Docker Hub en tâche de fond  
-- Le container lancé doit avoir pour nom overlord, doit pouvoir redémarrer de lui-même et doit avoir le port 80 du container rattaché au port 5000 de Char. Vous pouvez vérifier le fonctionnement de votre container en allant sur un http://<ip-de-char>:5000 comme URL sur votre navigateur internet  
-
-07 Récupérer l’adresse IP interne du container overlord sans lancer son shell et en une commande  
-08 Lancer un shell depuis un container alpine, en faisant en sorte que vous puissiez directement interagir avec le container via votre terminal et que le container se supprime à la fin de l’exécution du shell  
-09 Depuis le shell d’un container debian, faire en sorte d’installer via le gestionnaire de paquets du container, de quoi compiler un code source en C et le pusher sur un repo git  
-10 Créer un volume hatchery  
-11 Lister les volumes Docker créés sur la machine... je dis bien VOLUMES  
-12 Lancer un container mysql en tâche de fond  
-- Il devra aussi pouvoir redémarrer de lui-même en cas d’erreur et faire en sorte que le mot de passe root de la base de données soit "Kerrigan". Vous ferez aussi en sorte que la base de données soit stockée dans le volume hatchery, que le conteneur crée directement une base de données qui aura comme nom zerglings et le container s’appellera spawning-pool  
-
-13 Afficher les variables d’environnement du container spawning-pool en une seule commande, histoire d’être sûr que vous avez bien configuré votre container  
-14 Lancer un container wordpress en tâche de fond  
-- Le container doit avoir pour nom "lair", le port 80 du container doit être bindé au port 8080 de la machine virtuelle et doit pouvoir utiliser le container spawning-pool comme service de base de données. Vous pouvez tenter d’accéder à "lair" sur votre machine via un navigateur en rentrant l’adresse IP de la machine virtuelle comme URL. Bravo, vous venez de déployer un site Wordpress fonctionnel en 2 commandes !  
-
-15 Lancer un container phpmyadmin en tâche de fond  
-- Le container doit avoir pour nom roach-warden, le port 80 du container doit être bindé au port 8081 de la machine virtuelle et doit pouvoir faire en sorte d’aller explorer la base de données contenue dans le container spawning-pool  
-
+01 Create a virtual machine with docker-machine using the virtualbox driver, and named Char  
+02 Get the IP address of the Char virtual machine  
+03 Define the variables needed by your virtual machine Char in the general env of your terminal, so that you can run the docker ps command without errors  
+   You have to fix all four environment variables with one command, and you are not allowed to use your shell’s builtin to set these variables by hand  
+04 Get the hello-world container from the Docker Hub, where it’s available  
+05 Launch the hello-world container, and make sure that it prints its welcome message, then leaves it  
+06 Launch an nginx container, available on Docker Hub, as a background task  
+   It should be named overlord, be able to restart on its own, and have its 80 port attached to the 5000 port of Char  
+   You can check that your container functions properly by visiting http://<ip-de-char>:5000 on your web browser  
+07 Get the internal IP address of the overlord container without starting its shell and in one command  
+08 Launch a shell from an alpine container, and make sure that you can interact directly with the container via your terminal, and that the container deletes itself once the shell’s execution is done  
+09 From the shell of a debian container, install via the container’s package manager everything you need to compile C source code and push it onto a git repo  
+   Of course, make sure before that the package manager and the packages already in the container are updated  
+   For this exercise, you should only specify the commands to be run directly in the container  
+10 Create a volume named hatchery  
+11 List all the Docker volumes created on the machine, remember, VOLUMES  
+12 Launch a mysql container as a background task  
+   It should be able to restart on its own in case of error, and the root password of the database should be Kerrigan  
+   You will also make sure that the database is stored in the hatchery volume, that the container directly creates a database named zerglings, and that the container itself is named spawning-pool  
+13 Print the environment variables of the spawning-pool container in one command, to be sure that you have configured your container properly  
+14 Launch a wordpress container as a background task, just for fun  
+   The container should be named lair, its 80 port should be bound to the 8080 port of the virtual machine, and it should be able to use the spawning-pool container as a database service  
+   You can try to access lair on your machine via a web browser, with the IP address of the virtual machine as a URL  
+   Congratulations, you just deployed a functional Wordpress website in two commands!  
+15 Launch a phpmyadmin container as a background task  
+   It should be named roach-warden, its 80 port should be bound to the 8081 port of the virtual machine and it should be able to explore the database stored in the spawning-pool container  
 16 Consulter les logs en temps réel du container spawning-pool sans exécuter son shell pour autant  
 17 Afficher l’ensemble des containers actuellement actifs sur la machine virtuelle Char  
 18 Relancer le container overlord  
